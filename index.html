@@ -21,21 +21,61 @@ color:white;
 overflow-x:hidden;
 }
 
-/* APPLE KEYNOTE BACKGROUND */
+/* ===== CINEMATIC INTRO ===== */
+.intro{
+position:fixed;
+inset:0;
+background:#000;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+z-index:9999;
+animation:fadeOut 2s ease 2.5s forwards;
+}
+
+.intro h1{
+font-size:70px;
+letter-spacing:-3px;
+opacity:0;
+animation:zoomIn 1.2s ease forwards;
+}
+
+.intro p{
+margin-top:10px;
+color:#aaa;
+opacity:0;
+animation:fadeIn 1s ease 0.8s forwards;
+}
+
+@keyframes zoomIn{
+0%{transform:scale(1.4);opacity:0;}
+100%{transform:scale(1);opacity:1;}
+}
+
+@keyframes fadeIn{
+to{opacity:1;}
+}
+
+@keyframes fadeOut{
+to{opacity:0;visibility:hidden;}
+}
+
+/* ===== BACKGROUND GLOW ===== */
 .glow{
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(120,120,255,0.18), transparent 35%),
+radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(120,120,255,0.18), transparent 40%),
 radial-gradient(circle at 20% 80%, rgba(255,255,255,0.06), transparent 50%),
 radial-gradient(circle at 80% 30%, rgba(120,255,200,0.07), transparent 60%);
-filter: blur(30px);
+filter: blur(35px);
 transform:scale(1.2);
 z-index:-1;
 transition:0.1s;
 }
 
-/* NAV */
+/* ===== NAV ===== */
 nav{
 position:fixed;
 top:18px;
@@ -60,7 +100,7 @@ nav a{
 text-decoration:none;
 color:white;
 font-size:14px;
-margin-left:12px;
+margin-left:10px;
 padding:10px 14px;
 border-radius:999px;
 background:rgba(255,255,255,0.04);
@@ -76,19 +116,19 @@ background:rgba(255,255,255,0.08);
 font-weight:700;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
 height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
+padding:0 20px;
 position:relative;
-overflow:hidden;
 }
 
 .hero h1{
-font-size:130px;
+font-size:120px;
 letter-spacing:-6px;
 opacity:0;
 transform:translateY(40px);
@@ -114,32 +154,27 @@ background:rgba(255,255,255,0.06);
 border:1px solid rgba(255,255,255,0.1);
 }
 
-@keyframes fadeUp{
-to{opacity:1; transform:translateY(0);}
-}
-
-/* SCROLL STORY */
+/* ===== STORIES ===== */
 .story{
-height:100vh;
+min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:0 20px;
-position:sticky;
-top:0;
+padding:120px 20px;
+position:relative;
 }
 
 .story-inner{
 max-width:900px;
 text-align:center;
-transform:scale(0.95);
+transform:translateY(40px) scale(0.98);
 opacity:0;
-transition:1s;
+transition:0.9s ease;
 }
 
 .story.active .story-inner{
 opacity:1;
-transform:scale(1);
+transform:translateY(0) scale(1);
 }
 
 .story h2{
@@ -154,9 +189,9 @@ color:#bdbdbd;
 line-height:1.8;
 }
 
-/* DEVICES */
+/* ===== DEVICES ===== */
 .devices{
-padding:150px 20px;
+padding:140px 20px;
 text-align:center;
 }
 
@@ -189,7 +224,7 @@ width:100%;
 border-radius:20px;
 }
 
-/* COMMENTS */
+/* ===== COMMENTS ===== */
 textarea{
 width:100%;
 max-width:700px;
@@ -224,7 +259,7 @@ background:rgba(255,255,255,0.04);
 border:1px solid rgba(255,255,255,0.08);
 }
 
-/* MODAL */
+/* ===== MODAL ===== */
 .modal{
 position:fixed;
 inset:0;
@@ -245,10 +280,20 @@ background:rgba(255,255,255,0.06);
 border:1px solid rgba(255,255,255,0.1);
 }
 
+/* fade animation */
+@keyframes fadeUp{
+to{opacity:1; transform:translateY(0);}
+}
 </style>
 </head>
 
 <body>
+
+<!-- CINEMATIC INTRO -->
+<div class="intro">
+<h1>JB-Tech</h1>
+<p>Apple-style Tech Experience</p>
+</div>
 
 <div class="glow"></div>
 
@@ -267,63 +312,59 @@ border:1px solid rgba(255,255,255,0.1);
 <div>
 <h1>JB-Tech</h1>
 <p>
-A keynote-style tech experience focused on real smartphones, camera performance and honest reviews.
+Premium tech channel focused on real smartphone testing, camera quality and honest reviews.
 Built by two creators using Vivo X300 Pro as main device.
 </p>
 <div class="badge">Main device: Vivo X300 Pro</div>
 </div>
 </section>
 
-<!-- STORY 1 -->
 <section class="story" id="story1">
 <div class="story-inner">
-<h2>Real Technology</h2>
+<h2>Real Testing</h2>
 <p>
-We don’t focus on marketing numbers. We focus on real usage — camera, battery, performance and everyday experience.
-Everything is tested in real conditions, not benchmarks.
+We test smartphones in real-life conditions — not benchmarks.
+Camera, battery, performance and daily experience matter most.
 </p>
 </div>
 </section>
 
-<!-- STORY 2 -->
 <section class="story">
 <div class="story-inner">
 <h2>Two Creators</h2>
 <p>
-JB-Tech is built by two people who handle filming, editing and testing together.
-Every video is created with a shared vision of clean, minimal and honest tech content.
+JB-Tech is run by two people handling filming, editing and testing together.
+Every video is crafted in a clean, Apple-inspired style.
 </p>
 </div>
 </section>
 
-<!-- STORY 3 -->
 <section class="story">
 <div class="story-inner">
 <h2>Vivo X300 Pro</h2>
 <p>
-Our main device used for content creation, photography and daily use.
+Our main device used for content creation, photography and reviews.
 It defines the visual identity of JB-Tech.
 </p>
 </div>
 </section>
 
-<!-- DEVICES -->
 <section id="devices" class="devices">
 <h2>Devices</h2>
 
 <div class="cards">
 
-<div class="card" onclick="openM('Vivo X300 Pro','Main creator device used for filming, photography and daily content creation.')">
+<div class="card" onclick="openM('Vivo X300 Pro','Main creator device used for filming and photography.')">
 <img src="vivo.png">
 <h3>Vivo X300 Pro</h3>
 </div>
 
-<div class="card" onclick="openM('Samsung S26 Ultra','Ultra flagship focused on zoom, performance and productivity.')">
+<div class="card" onclick="openM('Samsung S26 Ultra','Ultra flagship with extreme zoom and performance.')">
 <img src="samsung.png">
 <h3>Samsung S26 Ultra</h3>
 </div>
 
-<div class="card" onclick="openM('Huawei Pura 80 Ultra','Camera-first flagship with AI imaging system.')">
+<div class="card" onclick="openM('Huawei Pura 80 Ultra','Camera-focused AI flagship.')">
 <img src="huawei.png">
 <h3>Huawei Pura 80 Ultra</h3>
 </div>
@@ -344,7 +385,6 @@ It defines the visual identity of JB-Tech.
 © 2026 JB-Tech Keynote Experience
 </footer>
 
-<!-- MODAL -->
 <div class="modal" id="m">
 <div class="box">
 <h2 id="mt"></h2>
@@ -355,19 +395,19 @@ It defines the visual identity of JB-Tech.
 
 <script>
 
-// cursor glow follow
+/* glow follow */
 document.addEventListener('mousemove',e=>{
 document.documentElement.style.setProperty('--x',e.clientX+'px');
 document.documentElement.style.setProperty('--y',e.clientY+'px');
 });
 
-// story scroll activation
+/* scroll reveal */
 const stories=document.querySelectorAll('.story');
 
 function check(){
 stories.forEach(s=>{
-let r=s.getBoundingClientRect().top;
-if(r<window.innerHeight*0.75){
+let r=s.getBoundingClientRect();
+if(r.top < window.innerHeight*0.75){
 s.classList.add('active');
 }
 });
@@ -375,7 +415,7 @@ s.classList.add('active');
 window.addEventListener('scroll',check);
 check();
 
-// modal
+/* modal */
 function openM(t,p){
 document.getElementById('mt').innerText=t;
 document.getElementById('mp').innerText=p;
@@ -386,7 +426,7 @@ function closeM(){
 document.getElementById('m').style.display='none';
 }
 
-// comments
+/* comments */
 function add(){
 let v=document.getElementById('t').value;
 if(!v)return;
