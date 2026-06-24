@@ -21,58 +21,17 @@ color:white;
 overflow-x:hidden;
 }
 
-/* ===== CINEMATIC INTRO ===== */
-.intro{
-position:fixed;
-inset:0;
-background:#000;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-z-index:9999;
-animation:fadeOut 2s ease 2.5s forwards;
-}
-
-.intro h1{
-font-size:70px;
-letter-spacing:-3px;
-opacity:0;
-animation:zoomIn 1.2s ease forwards;
-}
-
-.intro p{
-margin-top:10px;
-color:#aaa;
-opacity:0;
-animation:fadeIn 1s ease 0.8s forwards;
-}
-
-@keyframes zoomIn{
-0%{transform:scale(1.4);opacity:0;}
-100%{transform:scale(1);opacity:1;}
-}
-
-@keyframes fadeIn{
-to{opacity:1;}
-}
-
-@keyframes fadeOut{
-to{opacity:0;visibility:hidden;}
-}
-
-/* ===== BACKGROUND GLOW ===== */
+/* ===== BACKGROUND ===== */
 .glow{
 position:fixed;
 inset:0;
 background:
 radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(120,120,255,0.18), transparent 40%),
-radial-gradient(circle at 20% 80%, rgba(255,255,255,0.06), transparent 50%),
-radial-gradient(circle at 80% 30%, rgba(120,255,200,0.07), transparent 60%);
+radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05), transparent 50%),
+radial-gradient(circle at 80% 30%, rgba(120,255,200,0.06), transparent 60%);
 filter: blur(35px);
 transform:scale(1.2);
 z-index:-1;
-transition:0.1s;
 }
 
 /* ===== NAV ===== */
@@ -123,26 +82,22 @@ display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding:0 20px;
 position:relative;
+padding:0 20px;
+overflow:hidden;
 }
 
 .hero h1{
 font-size:120px;
 letter-spacing:-6px;
-opacity:0;
-transform:translateY(40px);
-animation:fadeUp 1s forwards;
 }
 
 .hero p{
-max-width:800px;
+max-width:850px;
 margin:20px auto;
 color:#bdbdbd;
 font-size:20px;
-line-height:1.6;
-opacity:0;
-animation:fadeUp 1s 0.2s forwards;
+line-height:1.7;
 }
 
 .badge{
@@ -154,59 +109,62 @@ background:rgba(255,255,255,0.06);
 border:1px solid rgba(255,255,255,0.1);
 }
 
-/* ===== STORIES ===== */
-.story{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:120px 20px;
-position:relative;
+/* ===== SIDE PHONES ===== */
+.phone{
+position:fixed;
+top:50%;
+width:320px;
+opacity:0.95;
+z-index:1;
+transition:0.4s;
 }
 
-.story-inner{
-max-width:900px;
-text-align:center;
-transform:translateY(40px) scale(0.98);
-opacity:0;
-transition:0.9s ease;
+.left{
+left:-120px;
+transform:translateY(-50%) rotate(-45deg);
 }
 
-.story.active .story-inner{
-opacity:1;
-transform:translateY(0) scale(1);
+.right{
+right:-120px;
+transform:translateY(-50%) rotate(45deg);
 }
 
-.story h2{
-font-size:70px;
-letter-spacing:-3px;
+.phone:hover{
+transform:translateY(-50%) scale(1.05) rotate(-45deg);
 }
 
-.story p{
-margin-top:20px;
-font-size:18px;
+/* ===== STORY ===== */
+section{
+padding:140px 20px;
+max-width:1000px;
+margin:auto;
+}
+
+h2{
+font-size:60px;
+letter-spacing:-2px;
+margin-bottom:20px;
+}
+
+p{
 color:#bdbdbd;
-line-height:1.8;
+font-size:18px;
+line-height:1.9;
 }
 
 /* ===== DEVICES ===== */
-.devices{
-padding:140px 20px;
-text-align:center;
-}
-
 .cards{
 display:flex;
 justify-content:center;
-gap:20px;
 flex-wrap:wrap;
+gap:20px;
 margin-top:60px;
 }
 
 .card{
 width:320px;
 padding:18px;
-border-radius:30px;
+border-radius:28px;
 
 background:rgba(255,255,255,0.04);
 border:1px solid rgba(255,255,255,0.08);
@@ -279,28 +237,21 @@ border-radius:25px;
 background:rgba(255,255,255,0.06);
 border:1px solid rgba(255,255,255,0.1);
 }
-
-/* fade animation */
-@keyframes fadeUp{
-to{opacity:1; transform:translateY(0);}
-}
 </style>
 </head>
 
 <body>
 
-<!-- CINEMATIC INTRO -->
-<div class="intro">
-<h1>JB-Tech</h1>
-<p>Apple-style Tech Experience</p>
-</div>
-
 <div class="glow"></div>
+
+<!-- SIDE PHONES (POP OUT) -->
+<img class="phone left" src="vivo.png">
+<img class="phone right" src="samsung.png">
 
 <nav>
 <div class="logo">JB-Tech</div>
 <div>
-<a href="#story1">Story</a>
+<a href="#about">About</a>
 <a href="#devices">Devices</a>
 <a href="#comments">Comments</a>
 <a href="https://www.tiktok.com/@jb_ewaste?_r=1&_t=ZN-97TykaA4oaM">TikTok</a>
@@ -308,63 +259,62 @@ to{opacity:1; transform:translateY(0);}
 </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
 <div>
 <h1>JB-Tech</h1>
+
 <p>
-Premium tech channel focused on real smartphone testing, camera quality and honest reviews.
-Built by two creators using Vivo X300 Pro as main device.
+JB-Tech is a premium tech channel focused on real smartphone testing, flagship reviews and honest comparisons.<br><br>
+
+We don’t use marketing scripts — every phone is tested in real life conditions: camera, battery, performance and daily usage.<br><br>
+
+The channel is run by <b>two creators</b> who film, test and edit everything together, building a clean Apple-style identity.<br><br>
+
+Our main device is the <b>Vivo X300 Pro</b>, used for most recordings, photography tests and social content.
 </p>
+
 <div class="badge">Main device: Vivo X300 Pro</div>
 </div>
 </section>
 
-<section class="story" id="story1">
-<div class="story-inner">
-<h2>Real Testing</h2>
+<!-- ABOUT -->
+<section id="about">
+<h2>More Than a Tech Channel</h2>
+
 <p>
-We test smartphones in real-life conditions — not benchmarks.
-Camera, battery, performance and daily experience matter most.
+JB-Tech is not just about phones — it’s about showing how technology feels in real life.
+We focus on premium devices from brands like Vivo, Samsung and Huawei, testing them in everyday situations.
+
+Each video is designed with a clean, minimal Apple-inspired style.
+No fake hype, no scripted marketing — just real usage experience.
+
+The goal is to help viewers understand which phone actually fits their lifestyle, not just which one has the highest specs on paper.
 </p>
-</div>
 </section>
 
-<section class="story">
-<div class="story-inner">
-<h2>Two Creators</h2>
-<p>
-JB-Tech is run by two people handling filming, editing and testing together.
-Every video is crafted in a clean, Apple-inspired style.
-</p>
-</div>
-</section>
-
-<section class="story">
-<div class="story-inner">
-<h2>Vivo X300 Pro</h2>
-<p>
-Our main device used for content creation, photography and reviews.
-It defines the visual identity of JB-Tech.
-</p>
-</div>
-</section>
-
-<section id="devices" class="devices">
+<!-- DEVICES -->
+<section id="devices">
 <h2>Devices</h2>
+
+<p>
+These are the main smartphones we use for testing and content creation.
+Each one has a different purpose — from camera-focused shooting to performance benchmarks and daily use.
+</p>
 
 <div class="cards">
 
-<div class="card" onclick="openM('Vivo X300 Pro','Main creator device used for filming and photography.')">
+<div class="card" onclick="openM('Vivo X300 Pro','Main creator device. Used for filming, portraits, night shots and daily usage. Best balance of camera and performance.')">
 <img src="vivo.png">
 <h3>Vivo X300 Pro</h3>
 </div>
 
-<div class="card" onclick="openM('Samsung S26 Ultra','Ultra flagship with extreme zoom and performance.')">
+<div class="card" onclick="openM('Samsung S26 Ultra','Ultra flagship focused on zoom, performance and productivity. Perfect for power users.')">
 <img src="samsung.png">
 <h3>Samsung S26 Ultra</h3>
 </div>
 
-<div class="card" onclick="openM('Huawei Pura 80 Ultra','Camera-focused AI flagship.')">
+<div class="card" onclick="openM('Huawei Pura 80 Ultra','Camera-first flagship with advanced AI processing and unique color science.')">
 <img src="huawei.png">
 <h3>Huawei Pura 80 Ultra</h3>
 </div>
@@ -372,19 +322,26 @@ It defines the visual identity of JB-Tech.
 </div>
 </section>
 
-<section id="comments" style="text-align:center;padding:120px 20px;">
+<!-- COMMENTS -->
+<section id="comments">
 <h2>Leave a Comment</h2>
 
+<p>
+Share your thoughts, ideas or suggestions for future videos.
+We read everything and often take ideas from the community.
+</p>
+
 <textarea id="t"></textarea><br>
-<button onclick="add()">Post</button>
+<button onclick="add()">Post Comment</button>
 
 <div id="list"></div>
 </section>
 
 <footer style="text-align:center;padding:60px;color:#777;">
-© 2026 JB-Tech Keynote Experience
+© 2026 JB-Tech
 </footer>
 
+<!-- MODAL -->
 <div class="modal" id="m">
 <div class="box">
 <h2 id="mt"></h2>
@@ -395,27 +352,13 @@ It defines the visual identity of JB-Tech.
 
 <script>
 
-/* glow follow */
+// glow follow cursor
 document.addEventListener('mousemove',e=>{
 document.documentElement.style.setProperty('--x',e.clientX+'px');
 document.documentElement.style.setProperty('--y',e.clientY+'px');
 });
 
-/* scroll reveal */
-const stories=document.querySelectorAll('.story');
-
-function check(){
-stories.forEach(s=>{
-let r=s.getBoundingClientRect();
-if(r.top < window.innerHeight*0.75){
-s.classList.add('active');
-}
-});
-}
-window.addEventListener('scroll',check);
-check();
-
-/* modal */
+// modal
 function openM(t,p){
 document.getElementById('mt').innerText=t;
 document.getElementById('mp').innerText=p;
@@ -426,7 +369,7 @@ function closeM(){
 document.getElementById('m').style.display='none';
 }
 
-/* comments */
+// comments
 function add(){
 let v=document.getElementById('t').value;
 if(!v)return;
