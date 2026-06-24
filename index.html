@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JB-Tech</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#000;
+color:white;
+overflow-x:hidden;
+}
+
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top,#111 0%,#000 60%);
+z-index:-1;
+}
+
+nav{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+width:90%;
+max-width:1400px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(25px);
+padding:16px 30px;
+border-radius:999px;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+z-index:100;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+letter-spacing:-1px;
+}
+
+.nav-buttons{
+display:flex;
+gap:15px;
+}
+
+.btn{
+padding:14px 28px;
+border-radius:999px;
+text-decoration:none;
+color:white;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.12);
+transition:.3s;
+}
+
+.btn:hover{
+box-shadow:
+0 0 30px rgba(255,255,255,.35),
+0 0 80px rgba(255,255,255,.15);
+transform:translateY(-2px);
+}
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:0 20px;
+position:relative;
+overflow:hidden;
+}
+
+.hero-content{
+max-width:900px;
+z-index:2;
+}
+
+.hero h1{
+font-size:110px;
+font-weight:800;
+letter-spacing:-5px;
+}
+
+.hero p{
+margin-top:20px;
+font-size:22px;
+color:#bfbfbf;
+line-height:1.7;
+}
+
+.followers{
+margin-top:40px;
+font-size:60px;
+font-weight:800;
+}
+
+.growing{
+font-size:20px;
+color:#9e9e9e;
+margin-top:10px;
+}
+
+.actions{
+margin-top:40px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.phone{
+position:absolute;
+width:420px;
+opacity:.95;
+transition:.5s;
+}
+
+.left-phone{
+left:-120px;
+top:150px;
+transform:rotate(-35deg);
+}
+
+.right-phone{
+right:-120px;
+top:160px;
+transform:rotate(35deg);
+}
+
+.phone:hover{
+transform:scale(1.05);
+}
+
+.about{
+padding:150px 20px;
+max-width:1200px;
+margin:auto;
+text-align:center;
+}
+
+.about h2{
+font-size:70px;
+margin-bottom:30px;
+}
+
+.about p{
+font-size:22px;
+color:#bdbdbd;
+line-height:1.8;
+max-width:900px;
+margin:auto;
+}
+
+.gallery{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+padding:100px 20px;
+}
+
+.card{
+width:320px;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+border-radius:35px;
+padding:25px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 40px rgba(255,255,255,.15);
+}
+
+.card img{
+width:100%;
+border-radius:25px;
+}
+
+.card h3{
+margin-top:20px;
+font-size:28px;
+}
+
+footer{
+padding:80px;
+text-align:center;
+color:#7d7d7d;
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<div class="logo">JB-Tech</div>
+
+<div class="nav-buttons">
+<a class="btn" href="https://www.tiktok.com/@jb_ewaste?_r=1&_t=ZN-97TykaA4oaM" target="_blank">TikTok</a>
+<a class="btn" href="https://discord.gg/hkpxu7j2j" target="_blank">Discord</a>
+</div>
+</nav>
+
+<section class="hero">
+
+<img src="vivo.png" class="phone left-phone">
+<img src="samsung.png" class="phone right-phone">
+
+<div class="hero-content">
+
+<h1>JB-Tech</h1>
+
+<p>
+Technology. Smartphones. Reviews. Unboxings.<br>
+Welcome to the official JB-Tech website.
+</p>
+
+<div class="followers">2K+</div>
+
+<div class="growing">
+Followers and still growing every day.
+</div>
+
+<div class="actions">
+<a class="btn" href="https://www.tiktok.com/@jb_ewaste?_r=1&_t=ZN-97TykaA4oaM">Follow on TikTok</a>
+<a class="btn" href="https://discord.gg/hkpxu7j2j">Join Discord</a>
+</div>
+
+</div>
+
+</section>
+
+<section class="about">
+
+<h2>More Than Just Tech</h2>
+
+<p>
+JB-Tech is a growing tech community focused on smartphones,
+flagship devices, cameras, reviews, comparisons, leaks,
+unboxings and everything related to modern technology.
+
+From Vivo and Samsung to Huawei and Xiaomi,
+you'll find premium content, honest opinions and exciting
+new devices every week.
+
+Over 2,000 followers have already joined the journey,
+and we're just getting started.
+
+</p>
+
+</section>
+
+<section class="gallery">
+
+<div class="card">
+<img src="vivo.png">
+<h3>Vivo X300 Pro</h3>
+</div>
+
+<div class="card">
+<img src="samsung.png">
+<h3>Samsung S26 Ultra</h3>
+</div>
+
+<div class="card">
+<img src="huawei.png">
+<h3>Huawei Pura 80 Ultra</h3>
+</div>
+
+</section>
+
+<footer>
+© 2026 JB-Tech • All Rights Reserved
+</footer>
+
+</body>
+</html>
